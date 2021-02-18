@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">Muuda registreeringut</h2>
+    <form action="#"
+          th:action="@{/update/{id}(id=${registration.id})}"
+          th:object="${registration}"
+          method="post">
+        <table class="table table-dark text-center">
+            <tr>
+                <td class="text-center"><p th:text="#{dentist.name}">dentist.name</p></td>
+                <td class="text-center">
+                    <select name="dentistName" id="dentist.name" th:field="${registration.dentistName}">
+                        <option value="Jürto Nii-Dommzonn">Jürto Nii-Dommzonn</option>
+                        <option value="Lutsu Kommer">Lutsu Kommer</option>
+                        <option value="Raul-Jaak-Ervin Üks-Jalgvärav">Raul-Jaak-Ervin Üks-Jalgvärav</option>
+                        <option value="Kolju Murru">Kolju Murru</option>
+                    </select></td>
+                <td th:if="${#fields.hasErrors('dentistName')}" th:errors="${dentistName}">name.error</td>
+            </tr>
+            <tr>
+                <td class="text-center"><p th:text="#{visit.date}">visit.date</p></td>
+                <td class="text-center"><input type="datetime-local" th:field="${registration.visitTime}"/></td>
+                <td th:if="${#fields.hasErrors('visitTime')}" th:errors="*{visitTime}">date.error</td>
+            </tr>
+            <tr>
+                <td class="text-center" colspan="2">
+                    <button class="btn btn-success" type="submit" th:text="#{save.visit}"></button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

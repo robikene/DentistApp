@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="text-center">Kõik registreeringud</h2>
+    <table class="table table-striped table-dark">
+        <tr th:each="registration : ${registrations}">
+            <td class="text-center" th:text="${registration.Id}"></td>
+            <td class="text-center" th:text="${registration.dentistName}"></td>
+            <td class="text-center" th:text="${registration.visitTime}"></td>
+            <td class="text-center"><a class="text-warning" th:href="@{/edit/{id}(id=${registration.id})}" th:text="#{register.change}">"#{register.change}"</a></td>
+            <td class="text-center"><a class="text-danger" th:href="@{/delete/{id}(id=${registration.id})}" th:text="#{register.delete}">"#{register.delete}"</a></td>
+        </tr>
+    </table>
+    <form class="text-center" action="#" th:action="@{/}" method="get">
+        <button class="btn btn-info" type="submit" th:text="#{homepage}"></button>
+    </form>
+    <form class="text-center" th:action="@{/search}">
+        <input class="form-control" type="text" name="keyword" id="keyword" size="50" th:value="${keyword}"/>
+        <input class="btn btn-primary mt-4" type="submit" value="Otsi registreeringut" />
+    </form>
+</div>
+</body>
+</html>

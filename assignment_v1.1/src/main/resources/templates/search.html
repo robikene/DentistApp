@@ -1,0 +1,26 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h2 class="text-center">Otsingutulemused</h2>
+    <table class="table table-dark text-center">
+        <tr th:each="visit : ${listVisits}" th:object="${listVisits}">
+            <td th:text="${visit.Id}"></td>
+            <td th:text="${visit.dentistName}"></td>
+            <td th:text="${visit.visitTime}"></td>
+            <td><a class="text-warning" th:href="@{/edit/{id}(id=${visit.id})}" th:text="#{register.change}">"#{register.change}"</a></td>
+            <td><a class="text-danger" th:href="@{/delete/{id}(id=${visit.id})}" th:text="#{register.delete}">"#{register.delete}"</a></td>
+        </tr>
+    </table>
+    <form class="text-center" action="#" th:action="@{/}" method="get">
+        <button class="btn btn-success" type="submit" th:text="#{homepage}"></button>
+    </form>
+    <form class="text-center" action="#" th:action="@{/results}" method="get">
+        <button class="btn btn-primary" type="submit" th:text="#{registration.view}"></button>
+    </form>
+</div>
+</body>
+</html>
