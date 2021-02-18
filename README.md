@@ -1,1 +1,4 @@
 # DentistApp
+
+Ülesanne võttis aega ca 10 päeva, millest esimesed 5 päeva polnud sugugi produktiivsed, kuna tutvun Spring Bootiga alles nüüd tänu sellele ülesandele. Seejärel jõudsin päris heade õppevideote ning muude õppematerjalide juurde, mis aitasid mul pisut aru saada, millistes Java klassides üldse toimetama pean ning millise workflow'ga Spring Boot on. Etteantud faile ma väga palju ei muutnud, kuna Spring Bootiga rohkem tutvudes mõistsin, et etteantud programm on väga abistavalt koostatud. Etteantud failidele lisaks lõin juurde DentistVisitRepository interface'i, ning kolm vaadet results, search, update. Teste ma ei loonud. 
+Lisasin klassidesse kommentaare nendes olevate meetodite ja muutujate kohta. HTML-faile ei kommenteerinud. Kasutasin Bootstrap'i HTML-i ilustamiseks. Programmi käivitamiseks võib oma IDE-s jooksutada klassi DentistAppApplication.
